@@ -73,6 +73,8 @@ Router::parseExtensions();
 
     Router::connect('/rest/:login/:token/vins',array('controller'=>'rest_vins','action'=>'index'),array('pass' => array('login','token')));
     Router::connect('/rest/vins',array('controller'=>'rest_vins','action'=>'indexbis'));
+    Router::connect('/student',array('controller'=>'rest_etudiants','action'=>'all_students'));
+
     Router::connect('/rest/consultation',array('controller'=>'rest_consultations','action'=>'consult'));
     Router::connect('/rest/cepages',array('controller'=>'rest_cepages','action'=>'index'));
     Router::connect('/rest/origines',array('controller'=>'rest_origines','action'=>'index'));

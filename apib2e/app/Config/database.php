@@ -61,17 +61,18 @@
  */
 
 class DATABASE_CONFIG {
-        public $default = array(
-                'datasource' => 'Database/Mysql',
-                'persistent' => false,
-                'host'       => 'localhost',
-                'port'       => '3306',
-                'login'      => 'root',
-                'password'   => 'root',
-                'database'   => '',
-                'prefix'     => '',
-                //'encoding' => 'utf8',
-        );
+
+     public $default = array(
+		'datasource' => 'Database/Mysql',
+		'persistent' => false,
+		'host' => 'polytechmontpellier.fr',
+		'login' => 'polytech_api',
+		'password' => 'QXB!o[=rB99R',
+		'database' => 'polytech_api',
+		'prefix' => '',
+		//'encoding' => 'utf8',
+	);
+
 
         public $test = array(
                 'datasource' => 'Database/Mysql',
@@ -105,7 +106,7 @@ class DATABASE_CONFIG {
 	          // $this->default['datasource'] = 'Database/Postgres';
 	           //$this->test['datasource']    = 'Database/Postgres';
                */
-               
+
                 $this->default['datasource'] ='Database/Mysql';
                 $this->default['persistent'] = false;
                 $this->default['host']= 'localhost';
