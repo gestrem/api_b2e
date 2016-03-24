@@ -4,6 +4,8 @@
  *
  * Test Case for Shell
  *
+ * PHP 5
+ *
  * CakePHP :  Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -39,7 +41,7 @@ class ShellTestShell extends Shell {
 /**
  * stopped property
  *
- * @var int
+ * @var integer
  */
 	public $stopped;
 
@@ -53,7 +55,7 @@ class ShellTestShell extends Shell {
 /**
  * stop method
  *
- * @param int $status
+ * @param integer $status
  * @return void
  */
 	protected function _stop($status = 0) {
@@ -366,36 +368,6 @@ class ShellTest extends CakeTestCase {
 		$this->Shell->out('Verbose', 1, Shell::VERBOSE);
 		$this->Shell->out('Normal', 1, Shell::NORMAL);
 		$this->Shell->out('Quiet', 1, Shell::QUIET);
-	}
-
-/**
- * Test overwriting.
- *
- * @return void
- */
-	public function testOverwrite() {
-		$number = strlen('Some text I want to overwrite');
-
-		$this->Shell->stdout->expects($this->at(0))
-			->method('write')
-			->with('Some <info>text</info> I want to overwrite', 0)
-			->will($this->returnValue($number));
-
-		$this->Shell->stdout->expects($this->at(1))
-			->method('write')
-			->with(str_repeat("\x08", $number), 0);
-
-		$this->Shell->stdout->expects($this->at(2))
-			->method('write')
-			->with('Less text', 0)
-			->will($this->returnValue(9));
-
-		$this->Shell->stdout->expects($this->at(3))
-			->method('write')
-			->with(str_repeat(' ', $number - 9), 0);
-
-		$this->Shell->out('Some <info>text</info> I want to overwrite', 0);
-		$this->Shell->overwrite('Less text');
 	}
 
 /**
@@ -870,8 +842,6 @@ TEXT;
 
 /**
  * Test file and console and logging
- *
- * @return void
  */
 	public function testFileAndConsoleLogging() {
 		// file logging
@@ -918,8 +888,6 @@ TEXT;
 
 /**
  * Test file and console and logging quiet output
- *
- * @return void
  */
 	public function testQuietLog() {
 		$output = $this->getMock('ConsoleOutput', array(), array(), '', false);

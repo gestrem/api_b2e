@@ -4,6 +4,8 @@
  *
  * Test Case for i18n extraction shell task
  *
+ * PHP 5
+ *
  * CakePHP :  Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
@@ -147,7 +149,7 @@ class ExtractTaskTest extends CakeTestCase {
 		$this->assertRegExp($pattern, $result);
 
 		$pattern = '/\#: (\\\\|\/)extract\.ctp:14\n';
-		$pattern .= '\#: (\\\\|\/)home\.ctp:68\n';
+		$pattern .= '\#: (\\\\|\/)home\.ctp:83\n';
 		$pattern .= 'msgid "Editing this Page"\nmsgstr ""/';
 		$this->assertRegExp($pattern, $result);
 
@@ -161,21 +163,6 @@ class ExtractTaskTest extends CakeTestCase {
 
 		$this->assertContains('msgid "double \\"quoted\\""', $result, 'Strings with quotes not handled correctly');
 		$this->assertContains("msgid \"single 'quoted'\"", $result, 'Strings with quotes not handled correctly');
-
-		$pattern = '/\#: (\\\\|\/)extract\.ctp:34\nmsgid "letter"/';
-		$this->assertRegExp($pattern, $result, 'Strings with context should not overwrite strings without context');
-
-		$pattern = '/\#: (\\\\|\/)extract\.ctp:35;37\nmsgctxt "A"\nmsgid "letter"/';
-		$this->assertRegExp($pattern, $result, 'Should contain string with context "A"');
-
-		$pattern = '/\#: (\\\\|\/)extract\.ctp:36\nmsgctxt "B"\nmsgid "letter"/';
-		$this->assertRegExp($pattern, $result, 'Should contain string with context "B"');
-
-		$pattern = '/\#: (\\\\|\/)extract\.ctp:38\nmsgid "%d letter"\nmsgid_plural "%d letters"/';
-		$this->assertRegExp($pattern, $result, 'Plural strings with context should not overwrite strings without context');
-
-		$pattern = '/\#: (\\\\|\/)extract\.ctp:39\nmsgctxt "A"\nmsgid "%d letter"\nmsgid_plural "%d letters"/';
-		$this->assertRegExp($pattern, $result, 'Should contain plural string with context "A"');
 
 		// extract.ctp - reading the domain.pot
 		$result = file_get_contents($this->path . DS . 'domain.pot');
@@ -366,9 +353,6 @@ class ExtractTaskTest extends CakeTestCase {
 
 		$pattern = '#msgid "Post body is super required"#';
 		$this->assertRegExp($pattern, $result);
-
-		$this->assertContains('msgid "double \\"quoted\\" validation"', $result, 'Strings with quotes not handled correctly');
-		$this->assertContains("msgid \"single 'quoted' validation\"", $result, 'Strings with quotes not handled correctly');
 	}
 
 /**
