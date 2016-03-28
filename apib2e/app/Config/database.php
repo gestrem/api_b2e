@@ -109,11 +109,11 @@ class DATABASE_CONFIG {
 
                 $this->default['datasource'] ='Database/Mysql';
                 $this->default['persistent'] = false;
-                $this->default['host']= 'localhost';
+                $this->default['host']= 'polytechmontpellier.fr';
                 $this->default['port']  = '8889';
-                $this->default['login']      = 'root';
-                $this->default['password']   = 'root';
-                $this->default['database']   = 'cake_php';
+                $this->default['login']      = 'polytech_api';
+                $this->default['password']   = 'QXB!o[=rB99R';
+                $this->default['database']   = 'polytech_api';
                 $this->default['prefix']     = '';
 	       endif;
 	}
